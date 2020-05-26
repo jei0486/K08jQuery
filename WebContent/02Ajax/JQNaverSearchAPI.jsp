@@ -22,6 +22,21 @@
 				error : errFunc
     		});   
 		});
+       
+       $('#startNum').change(function(){
+    		$.ajax({
+    			url : "../NaverSearchAPI.do",
+    			type : "get",
+    			data : {
+    				keyword : $('#keyword').val(),
+    				startNum : $('#startNum option:selected').val()
+    			},
+    			dataType : "json",
+				success : sucFuncJson,
+				error : errFunc
+    		});   
+		});
+    });
 /*      
  진슬 버전
 $('#searchFrm').click(function(){
@@ -42,7 +57,7 @@ $('#searchFrm').click(function(){
 				error : errFunc
     		});   
 		}); */
-    });
+  
     function sucFuncJson(d) {
 		//alert("성공:"+d);
 		var str = "";
@@ -65,7 +80,7 @@ $('#searchFrm').click(function(){
     
     function errFunc(errData) {
     	
-		//alert("실패:"+ errData.status + ":" +errData.statusText);
+		alert("실패:"+ errData.status + ":" +errData.statusText);
 	}
     </script>  
     <style>

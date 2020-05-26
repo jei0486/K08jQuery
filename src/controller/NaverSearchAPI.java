@@ -25,11 +25,13 @@ public class NaverSearchAPI extends HttpServlet {
 		String clientSecret = "bj9BGDAoS9"; // 애플리케이션 클라이언트 시크릿값"
 
 		String text = null;
-		String startNum = null;
+		//String startNum = null;
+		int startNum = 1;
 		try {
 			//jsp페이지에서 입력한 검색어를 받아와서 변수처리
 			String searchTxt = req.getParameter("keyword");
-			startNum = req.getParameter("startNum");
+			//startNum = req.getParameter("startNum");
+			startNum = Integer.parseInt(req.getParameter("startNum"));
 			
 			//text에 검색어를 넣어줌 & 인코딩
 			text = URLEncoder.encode(searchTxt, "UTF-8");
